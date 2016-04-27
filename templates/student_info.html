@@ -4,8 +4,17 @@
     <title>Student Info</title>
 </head>
 <body>
-<h1>{{ first }} {{ last }}</h1>
+    <h1>{{ first }} {{ last }}</h1>
 
-<p>GitHub Account: {{ github }}</p>
+    <p>GitHub Account: {{ github }}</p>
+    {% if projects %} 
+    <p>Projects:
+        <ul>
+        {%for project, grade in projects %}
+            <li>{{project}}: {{grade}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </p>
 </body>
 </html>
