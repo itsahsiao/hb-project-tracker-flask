@@ -5,4 +5,15 @@
     <h1>{{ title }}</h1>
     <p>Description: {{ description}}</p>
     <p>Max Grade: {{ max_grade }}</p>
+    {% if students_and_grade %} 
+    <p>Students' Grades
+        <ul>
+        {%for student, grade in students_and_grade %}
+            <li><a href="/student?github={{student}}">{{ first_name }} {{ last_name }}:</a> {{grade}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </p>
 {% endblock %}
+
+

@@ -68,11 +68,21 @@ def get_project_info():
 
     title = request.args.get('title', 'Markov')
     title, description, max_grade = hackbright.get_project_by_title(title)
+    students_and_grade = hackbright.get_grades_by_title(title)
+
+    for github, grade in students_and_grade:
+        first_name, last_name, github = hackbright.get_student_by_github(github)
+    # endsloop on last person does catch each student - NEED TO FIX
 
     return render_template("project_info.html",
                             title = title,
                             description = description,
-                            max_grade = max_grade)
+                            max_grade = max_grade,
+                            students_and_grade = students_and_grade,
+                            first_name = first_name,
+                            last_name = last_name)
+
+
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
