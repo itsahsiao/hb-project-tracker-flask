@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}Project Tracker{% endblock %}</title>
+</head>
+
+<body>
+    <h3><a href="/student?github={{ github }}">Student Info</a></h3>
+    <h3><a href="/student-search">Student Search</a></h3>
+    <h3><a href="/student-add">Add Student</a></h3>
+    {% block content %}Body Content Goes Here{% endblock %}
+</body>
+</html>
