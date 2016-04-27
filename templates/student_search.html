@@ -1,17 +1,13 @@
-<!doctype html>
-<html>
-<head>
-    <title>Project Tracker</title>
-</head>
+{% extends 'base.html' %}
+{% block title %}Student Search{% endblock %}
+    
+{% block content%}
 
-<body>
+    <form action="/student">
+        <label>Enter GitHub username
+            <input type="text" name="github">
+        </label>
+        <input type="submit" value="Display Student">
+    </form>
 
-<form action="/student">
-    <label>Enter GitHub username
-        <input type="text" name="github">
-    </label>
-    <input type="submit" value="Display Student">
-</form>
-
-</body>
-</html>
+{% endblock %}

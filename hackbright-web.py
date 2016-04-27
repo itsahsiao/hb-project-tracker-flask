@@ -62,6 +62,17 @@ def student_add_confirmation():
 #                            last=last,
 #                            github=github)
 
+@app.route("/project")
+def get_project_info():
+    """Show info about project."""
+
+    title = request.args.get('title', 'Markov')
+    title, description, max_grade = hackbright.get_project_by_title(title)
+
+    return render_template("project_info.html",
+                            title = title,
+                            description = description,
+                            max_grade = max_grade)
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
